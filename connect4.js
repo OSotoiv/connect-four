@@ -130,7 +130,7 @@ function checkForWin() {
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
 
-    return cells.every(
+    const winner = cells.every(
       ([y, x]) =>
         y >= 0 &&
         y < HEIGHT &&
@@ -138,6 +138,10 @@ function checkForWin() {
         x < WIDTH &&
         board[y][x] === currPlayer
     );
+    if (winner) {
+      highlight(cells)
+    }
+    return winner;
   }
 
   // TODO: read and understand this code. Add comments to help you.

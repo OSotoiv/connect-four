@@ -33,3 +33,7 @@
 #column-top td:hover {
   background-color: gold;
 }
+
+.won {
+  border: 2px solid rgba(234, 200, 4, 0.887)
+}
