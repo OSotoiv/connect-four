@@ -103,6 +103,7 @@ function handleClick(evt) {
   }
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
+  //why does 
   placeInTable(y, x);
 
   // check for win
@@ -140,13 +141,20 @@ function checkForWin() {
   }
 
   // TODO: read and understand this code. Add comments to help you.
+  //loop over the board array using a grid of four cells long. 
+  //note this checks the entire board every time a move is made
   for (var y = 0; y < HEIGHT; y++) {
     for (var x = 0; x < WIDTH; x++) {
+      //starts at board[0][0]+4 positions out. give these indices to _win()
       var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      //starts at board[0][0]+4 positions down. give these indices to _win() 
       var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      //starts at board[0][0]+4 positions diagnal. so first time throught the loop
+      //we get 0,0 1,1 2,2 3,3 as posions to check that they all have the same player. 
       var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      //this is the same but starting at board[0][0] and going 4 positions off the grid
       var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-
+      //check if all 4 posions on the board === current player.
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
       }
