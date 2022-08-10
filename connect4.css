@@ -35,5 +35,6 @@
 }
 
 .won {
-  border: 2px solid rgba(234, 200, 4, 0.887)
+  border: 3px solid rgb(4, 234, 165);
+  box-sizing: border-box;
 }
